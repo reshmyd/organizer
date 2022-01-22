@@ -34,9 +34,12 @@ useEffect(() => {
         
 
   useEffect(() => {
-      fetch("https://newsapi.org/v2/everything?domains=bbc.co.uk&pageSize=6&apiKey=181f1a96f5aa436faddfda5e5ebbd7e9")
+      fetch("https://newsdata.io/api/1/news?apikey=pub_3787631552d5fd90fbf8340b8ea8bc718bef&country=gb")
       .then(response => response.json())
-      .then(jsonResponse => setAllNews(jsonResponse))
+      .then(jsonResponse => {
+        setAllNews(jsonResponse)
+        console.log(jsonResponse)
+      })
       .catch(err => console.log(err))
   }, [])  
     
@@ -56,7 +59,7 @@ useEffect(() => {
         
         <section className="news-section">
           <h2>What's happening around the world?</h2>
-          {allNews.articles && <NewsCard allNews={allNews.articles} />}
+          {allNews.results && <NewsCard allNews={allNews.results} />}
         </section>
       
       </main>

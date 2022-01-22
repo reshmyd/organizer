@@ -42,7 +42,7 @@ const ToDoList = () => {
         </form>
         {list.map(elem => (
                   <div className="todo" key={elem.id}>
-                  <p>{elem.text}</p>
+                  <h4>{elem.text}</h4>
                   <i className="far fa-trash-alt" onClick={() => handleDelete(elem.id)}></i>
                   </div>
             ))}
